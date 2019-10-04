@@ -14,6 +14,7 @@ import { CartComponent } from './cart/cart.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ShippingComponent } from './shipping/shipping.component';
 import { ProductsService } from './products.service';
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
   imports: [
@@ -37,7 +38,8 @@ import { ProductsService } from './products.service';
     ProductAlertsComponent,
     ProductDetailsComponent,
     CartComponent,
-    ShippingComponent
+    ShippingComponent,
+    MessagesComponent,
   ],
   bootstrap: [ AppComponent ],
   providers: [CartService, ProductsService]

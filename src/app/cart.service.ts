@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { ShippingCost, Product } from './models/models';
+import { MessageService } from './message.service';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,8 @@ export class CartService {
   items: Product[] = [];
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private messageService: MessageService
   ) {}
 
   addToCart(product: Product) {
@@ -64,7 +66,6 @@ export class CartService {
 
   /** Log a HeroService message with the MessageService */
   private log(message: string) {
-    // this.messageService.add(`HeroService: ${message}`);
-    console.log('message', message);
+    this.messageService.add(`CartService: ${message}`);
   }
 }

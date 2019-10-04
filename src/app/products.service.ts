@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { Product } from './models/models';
+import { MessageService } from './message.service';
 @Injectable({
   providedIn: 'root'
 })
@@ -16,7 +17,8 @@ export class ProductsService {
   };
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private messageService: MessageService
   ) {}
 
    getProducts(): Observable<Product[]> {
@@ -59,8 +61,7 @@ export class ProductsService {
 
   /** Log a HeroService message with the MessageService */
   private log(message: string) {
-    // this.messageService.add(`HeroService: ${message}`);
-    console.log('message', message);
+     this.messageService.add(`ProductsService: ${message}`);
   }
 
 }
