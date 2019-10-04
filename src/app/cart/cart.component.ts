@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
 import { CartService } from '../cart.service';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { CustomerData, Product } from '../models/models';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent {
-  items;
-  checkoutForm;
+  items: Product[];
+  checkoutForm: FormGroup;
     constructor(
     private cartService: CartService,
     private formBuilder: FormBuilder,
@@ -21,7 +22,7 @@ export class CartComponent {
     });
   }
 
-  onSubmit(customerData) {
+  onSubmit(customerData: CustomerData) {
     // Process checkout data here
     console.warn('Your order has been submitted', customerData);
 

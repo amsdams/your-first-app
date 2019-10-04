@@ -9,6 +9,7 @@ import { CartComponent } from './cart/cart.component';
 import { ShippingComponent } from './shipping/shipping.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
+
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -23,7 +24,7 @@ describe('AppComponent', () => {
         ProductAlertsComponent,
         ProductDetailsComponent,
         CartComponent,
-        ShippingComponent
+        ShippingComponent,
       ],
     }).compileComponents();
   }));

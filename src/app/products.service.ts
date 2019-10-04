@@ -3,44 +3,39 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
-import { ShippingCost, Product } from './models/models';
-
+import { Product } from './models/models';
 @Injectable({
   providedIn: 'root'
 })
-export class CartService {
+export class ProductsService {
 
-  private shippingCostsUrl = 'api/shippingCosts';  // URL to web api
+  private productsUrl = 'api/products';  // URL to web api
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  items: Product[] = [];
-
   constructor(
     private http: HttpClient
   ) {}
 
-  addToCart(product: Product) {
-    this.items.push(product);
-  }
+   getProducts(): Observable<Product[]> {
 
-  getItems() {
-    return this.items;
-  }
-
-  clearCart() {
-    this.items = [];
-    return this.items;
-  }
-
-  getShippingCosts() {
-    return this.http.get<ShippingCost[]>(this.shippingCostsUrl).pipe(
-      tap(_ => this.log('fetched shippingCosts')),
-      catchError(this.handleError<ShippingCost[]>('getShippingCosts', []))
+    return this.http.get<Product[]>(this.productsUrl).pipe(
+      tap(_ => this.log('fetched products')),
+      catchError(this.handleError<Product[]>('getProducts', []))
     );
   }
+
+  getProduct(id: number): Observable<Product> {
+    const url = `${this.productsUrl}/${id}`;
+    return this.http.get<Product>(url).pipe(
+      tap(_ => this.log(`fetched product id=${id}`)),
+      catchError(this.handleError<Product>(`getProduct id=${id}`))
+    );
+  }
+
+
 
   /**
    * Handle Http operation that failed.
@@ -67,4 +62,5 @@ export class CartService {
     // this.messageService.add(`HeroService: ${message}`);
     console.log('message', message);
   }
+
 }
