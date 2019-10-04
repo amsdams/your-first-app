@@ -13,8 +13,8 @@ describe('ProductListComponent', () => {
   let component: ProductListComponent;
   let fixture: ComponentFixture<ProductListComponent>;
 
-  let productsService:any;
-  let getProductsSpy:any;
+  let productsService: any;
+  let getProductsSpy: any;
 
   beforeEach(async(() => {
     productsService = jasmine.createSpyObj('ProductsService', ['getProducts']);

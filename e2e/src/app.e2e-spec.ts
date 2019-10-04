@@ -11,19 +11,19 @@ describe('workspace-project App', () => {
   it('should display a title', () => {
     page.navigateTo();
     expect(page.getTitleText()).toEqual('My Store');
-      expect(page.getProductListTitleText()).toEqual('Products');
-      expect(page.getProductListProductTitleText()).toEqual('Phone XL');
-      expect(page.getProductListProductLinkText()).toEqual('Phone XL');
-      expect(page.getProductListProductDescriptionText()).toEqual('Description: A large phone with one of the best screens');
-      expect(page.getProductListProductAlertText()).toEqual('Notify Me');
-      expect(page.getProductListProductAlertButtonText()).toEqual('Notify Me');
+    expect(page.getProductListTitleText()).toEqual('Products');
+    expect(page.getProductListProductTitleText()).toEqual('Phone XL');
+    expect(page.getProductListProductLinkText()).toEqual('Phone XL');
+    expect(page.getProductListProductDescriptionText()).toEqual('Description: A large phone with one of the best screens');
+    expect(page.getProductListProductAlertText()).toEqual('Notify Me');
+    expect(page.getProductListProductAlertButtonText()).toEqual('Notify Me');
 
   });
 
   it('should display a product-alert', () => {
     page.navigateTo();
     page.getProductListProductAlertButton().click();
-    let alertDialog = browser.switchTo().alert();
+    const alertDialog = browser.switchTo().alert();
     expect(alertDialog.getText()).toEqual('You will be notified when the product goes on sale');
     alertDialog.accept();
   });

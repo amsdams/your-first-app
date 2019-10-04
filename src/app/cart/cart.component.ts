@@ -31,7 +31,7 @@ export class CartComponent {
 
       this.items = this.cartService.clearCart();
       this.checkoutForm.reset();
-    }else{
+    } else {
       window.alert('checkoutForm is not valid');
     }
   }
