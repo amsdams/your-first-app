@@ -16,15 +16,23 @@ export class AppPage {
 
 
   getProductListProductTitleText() {
-    return element(by.css('app-product-list>div>h3')).getText() as Promise<string>;
+    return element.all(by.css('app-product-list>div>h3')).get(0).getText() as Promise<string>;
   }
 
   getProductListProductLinkText() {
-    return element(by.css('app-product-list>div>h3>a')).getText() as Promise<string>;
+    return element.all(by.css('app-product-list>div>h3>a')).get(0).getText() as Promise<string>;
   }
 
   getProductListProductLink() {
-    return element(by.css('app-product-list>div>h3>a'));
+    return element.all(by.css('app-product-list>div>h3>a')).get(0);
+  }
+
+  getTopBarCheckOutLink() {
+    return element.all(by.css('app-top-bar>a')).get(1);
+  }
+
+  getTopBarHomeLink() {
+    return element.all(by.css('app-top-bar>a')).get(0);
   }
 
   getProductListProductDescriptionText() {
@@ -45,6 +53,31 @@ export class AppPage {
 
   getProductDetailsTitleText() {
     return element(by.css('app-product-details>h2')).getText() as Promise<string>;
+  }
+
+  // app-cart
+  getCartTitleText() {
+    return element(by.css('app-cart>h2')).getText() as Promise<string>;
+  }
+
+  getCartForm() {
+    return element(by.css('app-cart>form'));
+  }
+
+  getCartFormNameLabelText() {
+    return element.all(by.css('app-cart>form>div>label')).get(0).getText() as Promise<string>;
+  }
+
+  getCartFormNameInput() {
+    return element.all(by.css('app-cart>form>div>input')).get(0);
+  }
+
+  getCartFormAddressLabelText() {
+    return element.all(by.css('app-cart>form>div>label')).get(1).getText() as Promise<string>;
+  }
+
+  getCartFormAddressInput() {
+    return element.all(by.css('app-cart>form>div>input')).get(1);
   }
 
   getProductDetailsProductTitleText() {

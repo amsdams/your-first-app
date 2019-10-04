@@ -8,7 +8,7 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('should display a title', () => {
+  it('should display a product-list', () => {
     page.navigateTo();
     expect(page.getTitleText()).toEqual('My Store');
     expect(page.getProductListTitleText()).toEqual('Products');
@@ -35,6 +35,29 @@ describe('workspace-project App', () => {
     expect(page.getProductDetailsProductTitleText()).toEqual('Phone XL');
     expect(page.getProductDetailsProductSubTitleText()).toEqual('$799.00');
     expect(page.getProductDetailsProductDescriptionText()).toEqual('A large phone with one of the best screens');
+  });
+
+  it('should display a cart', () => {
+    page.navigateTo();
+    page.getTopBarCheckOutLink().click();
+    expect(page.getCartTitleText()).toEqual('Cart');
+
+    expect(page.getCartForm().getAttribute('class')).toContain('ng-invalid');
+
+
+    expect(page.getCartFormNameLabelText()).toEqual('NAME');
+    expect(page.getCartFormAddressLabelText()).toEqual('ADDRESS');
+
+    expect(page.getCartFormNameInput().getAttribute('class')).toContain('ng-invalid');
+    expect(page.getCartFormNameInput().sendKeys('info@sibeeshpassion.com'));
+    expect(page.getCartFormNameInput().getAttribute('class')).toContain('ng-valid');
+
+    expect(page.getCartFormAddressInput().getAttribute('class')).toContain('ng-invalid');
+    expect(page.getCartFormAddressInput().sendKeys('info@sibeeshpassion.com'));
+    expect(page.getCartFormAddressInput().getAttribute('class')).toContain('ng-valid');
+
+    expect(page.getCartForm().getAttribute('class')).toContain('ng-valid');
+
   });
 
 
