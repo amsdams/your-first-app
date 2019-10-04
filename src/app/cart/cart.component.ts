@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CartService } from '../cart.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CustomerData, Product } from '../models/models';
 @Component({
   selector: 'app-cart',
@@ -16,17 +16,23 @@ export class CartComponent {
   ) {
     this.items = this.cartService.getItems();
 
+
+
     this.checkoutForm = this.formBuilder.group({
-      name: '',
-      address: ''
+      name: ['', Validators.required],
+      address: ['', [Validators.required, Validators.email]]
     });
   }
 
   onSubmit(customerData: CustomerData) {
     // Process checkout data here
-    console.warn('Your order has been submitted', customerData);
+    if (this.checkoutForm.valid) {
+      console.warn('Your order has been submitted', customerData);
 
-    this.items = this.cartService.clearCart();
-    this.checkoutForm.reset();
+      this.items = this.cartService.clearCart();
+      this.checkoutForm.reset();
+    }else{
+      window.alert('checkoutForm is not valid');
+    }
   }
 }

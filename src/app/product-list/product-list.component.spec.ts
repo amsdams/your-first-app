@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed, getTestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ProductListComponent } from './product-list.component';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { ProductsService } from '../products.service';
@@ -13,8 +13,8 @@ describe('ProductListComponent', () => {
   let component: ProductListComponent;
   let fixture: ComponentFixture<ProductListComponent>;
 
-  let productsService;
-  let getProductsSpy;
+  let productsService:any;
+  let getProductsSpy:any;
 
   beforeEach(async(() => {
     productsService = jasmine.createSpyObj('ProductsService', ['getProducts']);
