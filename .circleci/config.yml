@@ -1,31 +1,31 @@
 version: 2
-jobs: 
-  build: 
-    docker: 
+jobs:
+  build:
+    docker:
       - image: "circleci/node:10-browsers"
     working_directory: ~/project-name
-    steps: 
+    steps:
       - checkout
-      - run: 
+      - run:
           command: "echo ${CIRCLE_BRANCH}"
           name: "Show current branch"
-      - restore_cache: 
-          keys: 
+      - restore_cache:
+          keys:
             - "v1-dependencies-{{ checksum \"package-lock.json\" }}"
             - v1-dependencies-
-      - run: 
+      - run:
           command: "npm install"
           name: "Install local dependencies"
-      - save_cache: 
+      - save_cache:
           key: "v1-dependencies-{{ checksum \"package-lock.json\" }}"
-          paths: 
+          paths:
             - node_modules
-      - run: 
+      - run:
           command: "npm run lint"
           name: Linting
-      - run: 
-          command: "npm run test --single-run"
+      - run:
+          command: "npm run test -- --single-run --no-progress --browser=ChromeNoSandbox
           name: Testing
-      - run: 
-          command: "npm run e2e --single-run"
+      - run:
+          command: "npm run e2e -- --no-progress"
           name: "End to End Test"

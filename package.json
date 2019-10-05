@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start-not": "concurrently \"wiremock --root-dir ./mock\" \"ng serve\"",
-    "start":"ng serve",
+    "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
