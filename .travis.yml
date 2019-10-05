@@ -1,0 +1,14 @@
+language: node_js
+cache:
+  directories:
+    - node_modules
+node_js:
+- 10
+install:
+- npm i
+script:
+- npm run lint
+- npm run test -- --watch=false
+- npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js
+# script:
+#  - npm test
