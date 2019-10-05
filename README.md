@@ -1,5 +1,7 @@
 # Badges
 [![CircleCI](https://circleci.com/gh/amsdams/your-first-app.svg?style=svg)](https://circleci.com/gh/amsdams/your-first-app)
+[![Maintainability](https://api.codeclimate.com/v1/badges/91122e586e6cf26f55db/maintainability)](https://codeclimate.com/github/amsdams/your-first-app/maintainability)
+[![Known Vulnerabilities](https://snyk.io//test/github/amsdams/your-first-app/badge.svg?targetFile=package.json)](https://snyk.io//test/github/amsdams/your-first-app?targetFile=package.json)
 
 
 # MyDreamApp
