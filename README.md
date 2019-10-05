@@ -1,5 +1,5 @@
 # Badges
-[![CircleCI](https://circleci.com/gh/your-first-app/farbton.svg?style=svg)](https://circleci.com/gh/amsdams/your-first-app)
+[![CircleCI](https://circleci.com/gh/amsdams/your-first-app.svg?style=svg)](https://circleci.com/gh/amsdams/your-first-app)
 
 
 # MyDreamApp
