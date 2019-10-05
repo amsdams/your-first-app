@@ -1,40 +1,32 @@
---- 
+version: 2
 jobs: 
   test: 
     docker: 
-      - 
-        image: "circleci/node:10-browsers"
+      - image: "circleci/node:10-browsers"
     steps: 
       - checkout
-      - 
-        run: 
+      - run: 
           command: "echo ${CIRCLE_BRANCH}"
           name: "Show current branch"
-      - 
-        restore_cache: 
+      - restore_cache: 
           keys: 
             - "v1-dependencies-{{ checksum \"package-lock.json\" }}"
             - v1-dependencies-
-      - 
-        run: 
+      - run: 
           command: "npm install"
           name: "Install local dependencies"
-      - 
-        save_cache: 
+      - save_cache: 
           key: "v1-dependencies-{{ checksum \"package-lock.json\" }}"
           paths: 
             - node_modules
-      - 
-        run: 
+      - run: 
           command: "npm run lint"
           name: Linting
-      - 
-        run: 
+      - run: 
           command: "npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI"
           name: Testing
-      - 
-        run: 
+      - run: 
           command: "npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js"
           name: "End to End Test"
     working_directory: ~/project-name
-version: 2
+
