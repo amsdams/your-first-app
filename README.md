@@ -2,7 +2,7 @@
 [![CircleCI](https://circleci.com/gh/amsdams/your-first-app.svg?style=svg)](https://circleci.com/gh/amsdams/your-first-app)
 [![Maintainability](https://api.codeclimate.com/v1/badges/91122e586e6cf26f55db/maintainability)](https://codeclimate.com/github/amsdams/your-first-app/maintainability)
 [![Known Vulnerabilities](https://snyk.io//test/github/amsdams/your-first-app/badge.svg?targetFile=package.json)](https://snyk.io//test/github/amsdams/your-first-app?targetFile=package.json)
-
+[![codebeat badge](https://codebeat.co/badges/073dbd51-ba48-49ee-98e4-916c33289931)](https://codebeat.co/projects/github-com-amsdams-your-first-app-master)
 
 # MyDreamApp
 
