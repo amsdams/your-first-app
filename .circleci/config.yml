@@ -24,8 +24,8 @@ jobs:
           command: "npm run lint"
           name: Linting
       - run: 
-          command: "npm run test"
+          command: "npm run test --"
           name: Testing
       - run: 
-          command: "npm run e2e"
+          command: "npm run e2e --"
           name: "End to End Test"
