@@ -24,8 +24,8 @@ jobs:
           command: "npm run lint"
           name: Linting
       - run:
-          command: "npm run test -- --single-run --no-progress --browser=ChromeNoSandbox"
+          command: "npm run test -- --watch=false"
           name: Testing
       - run:
-          command: "npm run e2e -- --no-progress"
+          command: "npm run e2e -- --watch=false"
           name: "End to End Test"
